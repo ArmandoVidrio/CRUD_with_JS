@@ -1,0 +1,288 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <title>CheapTech</title>  
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS v5.2.1 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+  
+    <!--Scripts from the practice 2-->
+  <script src="https://kit.fontawesome.com/761c3e6678.js" crossorigin="anonymous"></script>
+  <script src="../controllers/utils.js"></script>
+  <script src="../controllers/product.js"></script>
+  <script src="../controllers/shopping_cart.js"></script>
+  <script src="../controllers/data_handler.js"></script>
+  <script src="../controllers/index.js"></script>
+
+</head>
+
+<body>
+  <header>
+   <nav class="navbar navbar-expand-lg navbar-dark fixed-top navbarTun">
+      <div class="container-fluid jusfify-content-between">
+      <a class="navbar-brand titleFam" href="#"><i class="fa-solid fa-house-chimney fa-spin" style="color:rgb(232, 27, 27);"></i>&nbsp; CheapTech</a>
+      <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId"
+        aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="collapsibleNavId">
+        <ul class="navbar-nav me-auto mt-2 mt-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" href="P01_index.html" aria-current="page">Home <span class="visually-hidden">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="P01_about_us.html">Sobre nosotros</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Productos</a>
+            <div class="dropdown-menu" aria-labelledby="dropdownId">
+              <a class="dropdown-item" href="teclados.html">Teclados</a>
+              <a class="dropdown-item" href="#">Monitores</a>
+              <a class="dropdown-item" href="#">Ratones</a>
+              <a class="dropdown-item" href="#">Laptop</a>
+            </div>
+          </li>
+          <form class="d-flex my-2 my-lg-0">
+            <input id="searchbar" class="form-control me-md-3" type="text" placeholder="¿No encuentras algo?">
+            <button id="submitButton" class="btn my-2 my-sm-0" type="submit">Buscar</button>
+          </form> 
+        </ul>
+        <div style=" margin: 0 2%;">
+          <a href="" data-bs-toggle="modal" data-bs-target="#modalId" style="text-decoration: none; color: whitesmoke;"><i class="fa-solid fa-user icons" id="login" role="button"></i> Ingresar</a>
+        </div>
+        <div style="justify-content: center;">
+          <a href="P01_cart.html"><i class="fa-solid fa-cart-shopping icons"></i></a>
+        </div>
+        <!--Div que colapsa-->
+      </div>
+     </div>
+   </nav>
+  </header>
+  
+  <main>
+    <!-- Modal Body -->
+    <!-- if you want to close by clicking outside the modal, delete the last endpoint:data-bs-backdrop and data-bs-keyboard -->
+    <div class="modal fade" id="modalId" tabindex="-1" role="dialog" aria-labelledby="modalTitleId" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-sm" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="modalTitleId">Iniciar sesión</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body" style="text-align: center;">
+            <form action="" class="mb-3" style="display: inline-block;">
+              <label>Correo electronico</label>
+              <div class="input-group mb-3">
+                <input class="circular-border" type="text" id="correo" placeholder="Ingresa tu correo" required>
+                <span class="input-group-text"><i class="fa-solid fa-user" style="color: #4b3a3a;"></i></span>
+              </div>
+              <label>Contraseña</label>
+              <div class="input-group mb-3">
+                <input type="text" id="contra" placeholder="Ingresa tu contraseña" class="circular-border" name="password" required>
+                <span class="input-group-text"><i class="fa-solid fa-lock" style="color: #4b3a3a;"></i></span>
+              </div>
+            </form>
+              <button type="button" class="btn btn-primary">Iniciar sesion</button>
+          </div>
+          <div class="modal-footer" style="justify-content: center;">
+            <span>¿No tienes cuenta? <a href="" data-bs-toggle="modal" data-bs-target="#modalregistrerId">Registrate aqui</a></span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--Registrer modal-->
+    <!-- Modal trigger button -->
+    <!-- Modal Body -->
+    <!-- if you want to close by clicking outside the modal, delete the last endpoint:data-bs-backdrop and data-bs-keyboard -->
+    <div class="modal fade" id="modalregistrerId" tabindex="-1" role="dialog" aria-labelledby="modalTitleId" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-md" role="document">
+        <div class="modal-content" style="width: max-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="modalTitleId">Registrarse</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div class="container" style="padding: 10px;">
+              <div class="row">
+                <div class="col-6"><Input class="circular-border-registrer" placeholder="Nombre(s)" required></Input></div>
+                <div class="col-6"><input placeholder="Apellidos" type="text" class="circular-border" name="Apellidos" required></div>
+              </div>
+              <div class="row">
+                <div class="col-12">
+                  <input class="circular-border-registrer" type="text" placeholder="Correo" name="correo" style="width: 100%;" required>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-12">
+                  <input class="circular-border-registrer" type="text" placeholder="Contraseña" style="width: 100%;" name="password" required>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-12">
+                  <input class="circular-border-registrer" type="text" placeholder="Confirmar contraseña" style="width: 100%;" required name="password">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <a name="" id="" class="btn btn-success" href="#" role="button">Registrarse</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--Carousel-->
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-md-8">
+              <div id="carouselId" class="carousel slide justify-content-center ms-25" data-bs-ride="carousel" >
+                  <ol class="carousel-indicators">
+                      <li data-bs-target="#carouselId" data-bs-slide-to="0" class="active" aria-current="true" aria-label="First slide"></li>
+                      <li data-bs-target="#carouselId" data-bs-slide-to="1" aria-label="Second slide"></li>
+                      <li data-bs-target="#carouselId" data-bs-slide-to="2" aria-label="Third slide"></li>
+                  </ol>
+                  <div class="carousel-inner" role="listbox" width="70%">
+                      <div class="carousel-item active">
+                          <img src="https://rebelcry.com/img/2021/03/26/1616758979-teclado-mecanico-story-highlight-976x549.jpg" class="w-100 d-block" alt="First slide" height="500" style="object-fit: scale-down;">
+                      </div>
+                      <div class="carousel-item">
+                          <img src="https://ocelot.com.mx/wp-content/uploads/2023/03/sw_mouse_gamer_rgb_ogmm02_1.png" class="w-100 d-block" alt="Second slide" height="500" style="object-fit: scale-down;">
+                      </div>
+                      <div class="carousel-item">
+                          <img src="https://parabuenosaires.com/wp-content/uploads/2022/09/comprar-pc-gamer.jpg" class="w-100 d-block" alt="Third slide" height="500" style="object-fit: scale-down;">
+                      </div>
+                  </div>
+                  <button class="carousel-control-prev" type="button" data-bs-target="#carouselId" data-bs-slide="prev">
+                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Previous</span>
+                  </button>
+                  <button class="carousel-control-next" type="button" data-bs-target="#carouselId" data-bs-slide="next">
+                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Next</span>
+                  </button>
+              </div>
+          </div>
+      </div>
+    </div>
+    <!--Images cards-->
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-3 col-md-4 col-sm-6" style="padding-bottom: 5px;">
+          <div class="card productCard">
+            <img class="card-img-top" src="https://sm.ign.com/ign_es/review/s/steam-deck/steam-deck-review-in-progress_tusv.jpg" alt="St eam deck">
+            <div class="card-body">
+              <h4 class="card-title">Steam deck</h4>
+              <p class="card-text">¿Listo para un nuevo nivel de juego portátil? No te pierdas la oportunidad de tener tu Steam Deck. ¡Ordénalo ahora y lleva tus juegos a un nivel completamente nuevo!</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-4 col-sm-6" style="padding-bottom: 5px;margin-bottom: 5px;" >
+          <div class="card productCard d-flex flex-column">
+            <img class="card-img-top" src="https://cl.buscafs.com/www.levelup.com/public/uploads/images/811771/811771.jpg" alt="Gabinetes">
+            <div class="card-body">
+              <h4 class="card-title">Gabinetes pc</h4>
+              <p class="card-text flex-grow-1">En CheapTech, entendemos tu pasión por la informática y te ofrecemos una amplia gama de gabinetes de alta calidad que superarán tus expectativas.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-4 col-sm-6" style="padding-bottom: 5px;">
+          <div class="card productCard">
+            <img class="card-img-top" src="https://img.global.news.samsung.com/mx/wp-content/uploads/2022/08/Odyssey_Ark_PR_dl1-e1683908038845.jpg" alt="Title">
+            <div class="card-body productCard">
+              <h4 class="card-title">Monitores</h4>
+              <p class="card-text"> Sumérgete en tus juegos y contenido favoritos como nunca antes. Nuestros monitores te transportarán a mundos virtuales y te harán sentir parte de la acción.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-4 col-sm-6" style="padding-bottom: 5px;">
+          <div class="card productCard">
+            <img class="card-img-top" src="https://tecnogaming.com/wp-content/uploads/2022/01/Zephyrus-Duo-16-Scenario-1.jpg" alt="Laptop">
+            <div class="card-body">
+              <h4 class="card-title">Laptops gamers</h4>
+              <p class="card-text">Nuestras laptops gaming están equipadas con puertos USB-C, HDMI, y más para que puedas conectar tus dispositivos y accesorios sin problemas.</p>
+            </div>
+          </div>
+        </div>
+      <div class="row">
+        <div class="col-lg-3 col-md-4 col-sm-6" style="padding-bottom: 5px;">
+          <div class="card productCard">
+            <img class="card-img-top" src="https://www.revistaneo.com/sites/default/files/2022-01/Cloud%20Alpha%20Wireless%20Headset.jpg" alt="cascos">
+            <div class="card-body">
+              <h4 class="card-title">Audifonos</h4>
+              <p class="card-text">Fabricados con materiales de alta calidad, nuestros auriculares son duraderos y están diseñados para resistir las sesiones de juego más intensas.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-4 col-sm-6" style="padding-bottom: 5px;">
+          <div class="card productCard">
+            <img class="card-img-top" src="https://www.gamecored.com/wp-content/uploads/2022/01/Clutch-Wireless-Controller-1-1620x800.jpg" alt="control">
+            <div class="card-body">
+              <h4 class="card-title">Controles</h4>
+              <p class="card-text">Nuestros controles ofrecen joysticks y botones de alta calidad para una respuesta precisa en cada movimiento y acción. Experimenta una jugabilidad fluida y sin interrupciones.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-4 col-sm-6" style="padding-bottom: 5px;">
+          <div class="card">
+            <img class="card-img-top" src="https://assets2.razerzone.com/images/pnx.assets/7f39feb6aff2401707b491d36cd1cd39/razer-iskur.jpg" alt="Title">
+            <div class="card-body">
+              <h4 class="card-title">Sillas</h4>
+              <p class="card-text"> Nuestras sillas son ideales tanto para jugadores ávidos como para profesionales que pasan horas frente a la pantalla. Obtén la silla que se adapte a tu estilo de vida.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-4 col-sm-6" style="padding-bottom: 5px;">
+          <div class="card">
+            <img class="card-img-top" src="https://cdn.hobbyconsolas.com/sites/navi.axelspringer.es/public/media/image/2023/07/accesorios-gaming-3084392.jpg?tf=3840x" alt="Accesorios">
+            <div class="card-body">
+              <h4 class="card-title">Accesorios</h4>
+              <p class="card-text">Elige entre una variedad de diseños y estilos que se adapten a tu gusto personal. Desde iluminación RGB personalizable hasta diseños elegantes, nuestros accesorios destacarán en tu configuración.</p>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="row justify-content-center">
+        <nav aria-label="Page navigation" style="width: auto;">
+          <ul class="pagination">
+            <li class="page-item disabled">
+              <a class="page-link" href="#" aria-label="Previous">
+                <span aria-hidden="true">&laquo;</span>
+              </a>
+            </li>
+            <li class="page-item active" aria-current="page"><a class="page-link" href="#">1</a></li>
+            <li class="page-item"><a class="page-link" href="#">2</a></li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item">
+              <a class="page-link" href="#" aria-label="Next">
+                <span aria-hidden="true">&raquo;</span>
+              </a>
+            </li>
+          </ul>
+    </nav>    
+      </div>
+      
+    </div>
+  </footer>
+  <!-- Bootstrap JavaScript Libraries -->
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+    integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+    integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
+  </script>
+</body>
+
+</html>
